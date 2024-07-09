@@ -1,0 +1,1 @@
+Este é um texto de tamanho médio para teste da função de impressão da impressora. Ele contém algumas frases para avaliar o comportamento do método. 

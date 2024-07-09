@@ -1,0 +1,33 @@
+@startuml
+skinparam classAttributeIconSize 0
+class RemoveElement{
+- stack : Stack<Integer>
+- element : int
++ RemoveElement(stack : Stack<Integer>, element : int)
++ execute() : void
++ undo() : void
+}
+RemoveElement ..|> Command
+class AddElement{
+- stack : Stack<Integer>
+- element : int
++ AddElement(stack : Stack<Integer>, element : int)
++ execute() : void
++ undo() : void
+}
+AddElement ..|> Command
+class Client{
++ {static} main(args : String[]) : void
+}
+class Invoker{
+- command : Command
++ setCommand(command : Command) : void
++ executeCommand() : void
++ undoCommand() : void
+}
+Invoker--"- command" Command
+interface Command{
++ execute() : void
++ undo() : void
+}
+@enduml

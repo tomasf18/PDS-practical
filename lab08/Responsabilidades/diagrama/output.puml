@@ -1,0 +1,64 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Main{
++ {static} main(args : String[]) : void
+}
+class TeamLeader{
++ TeamLeader(e : EmployeeInterface)
++ start(startDate : Date) : void
++ terminate(terminateDate : Date) : void
++ work() : void
++ plan() : void
+}
+TeamLeader --|> Decorator
+class Employee{
++ start(startDate : Date) : void
++ terminate(terminateDate : Date) : void
++ work() : void
+}
+Employee ..|> EmployeeInterface
+class Decorator{
+- e : EmployeeInterface
++ Decorator(e : EmployeeInterface)
++ start(startDate : Date) : void
++ terminate(terminateDate : Date) : void
++ work() : void
+}
+Decorator ..|> EmployeeInterface
+class TeamMember{
++ TeamMember(e : EmployeeInterface)
++ start(startDate : Date) : void
++ terminate(terminateDate : Date) : void
++ work() : void
++ colaborate() : void
+}
+TeamMember --|> Decorator
+class Date{
+- day : int
+- month : int
+- year : int
++ Date()
++ Date(day : int, month : int, year : int)
++ setDay(day : int) : void
++ setMonth(month : int) : void
++ setYear(year : int) : void
++ getDay() : int
++ getMonth() : int
++ getYear() : int
++ toString() : String
+}
+class Manager{
++ Manager(e : EmployeeInterface)
++ start(startDate : Date) : void
++ terminate(terminateDate : Date) : void
++ work() : void
++ manage() : void
+}
+Manager --|> Decorator
+Decorator--"- e" EmployeeInterface
+interface EmployeeInterface{
++ start(startDate : Date) : void
++ terminate(terminateDate : Date) : void
++ work() : void
+}
+@enduml

@@ -1,0 +1,111 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Cake {
+  + Cake(String): 
+  - topLayerCream: Cream
+  - message: String
+  - shape: Shape
+  - midLayerCream: Cream
+  - topping: Topping
+  + addCakeLayer(): void
+  + toString(): String
+   topLayerCream: Cream
+   topping: Topping
+   message: String
+   midLayerCream: Cream
+   shape: Shape
+}
+interface CakeBuilder << interface >> {
+  + addMessage(String): void
+  + addCakeLayer(): void
+  + addCreamLayer(): void
+  + createCake(): void
+  + addTopping(): void
+  + addTopLayer(): void
+   cake: Cake
+   cakeShape: Shape
+}
+class CakeMaster {
+  + CakeMaster(): 
+  - cakeBuilder: CakeBuilder
+  + createCake(String): void
+  + createCake(Shape, int, String): void
+  + createCake(int, String): void
+   cake: Cake
+   cakeBuilder: CakeBuilder
+}
+class ChocolateCakeBuilder {
+  + ChocolateCakeBuilder(): 
+  + addCakeLayer(): void
+  + addTopLayer(): void
+  + addTopping(): void
+  + createCake(): void
+  + addCreamLayer(): void
+  + addMessage(String): void
+   cake: Cake
+   cakeShape: Shape
+}
+enum Cream << enumeration >> {
+  + Cream(): 
+  + valueOf(String): Cream
+  + values(): Cream[]
+}
+class Lab06ex1 {
+  + Lab06ex1(): 
+  + main(String[]): void
+}
+enum Shape << enumeration >> {
+  + Shape(): 
+  + values(): Shape[]
+  + valueOf(String): Shape
+}
+class SpongeCakeBuilder {
+  + SpongeCakeBuilder(): 
+  + addCakeLayer(): void
+  + addCreamLayer(): void
+  + addTopLayer(): void
+  + addMessage(String): void
+  + addTopping(): void
+  + createCake(): void
+   cake: Cake
+   cakeShape: Shape
+}
+enum Topping << enumeration >> {
+  + Topping(): 
+  + values(): Topping[]
+  + valueOf(String): Topping
+}
+class YogurtCakeBuilder {
+  + YogurtCakeBuilder(): 
+  + createCake(): void
+  + addTopping(): void
+  + addTopLayer(): void
+  + addMessage(String): void
+  + addCakeLayer(): void
+  + addCreamLayer(): void
+   cake: Cake
+   cakeShape: Shape
+}
+
+Cake                 "1" *-[#595959,plain]-> "midLayerCream\n1" Cream                
+Cake                 "1" *-[#595959,plain]-> "shape\n1" Shape                
+Cake                 "1" *-[#595959,plain]-> "topping\n1" Topping              
+CakeMaster           "1" *-[#595959,plain]-> "cakeBuilder\n1" CakeBuilder          
+ChocolateCakeBuilder  -[#595959,dashed]->  Cake                 : "«create»"
+ChocolateCakeBuilder "1" *-[#595959,plain]-> "chocolateCake\n1" Cake                 
+ChocolateCakeBuilder  -[#008200,dashed]-^  CakeBuilder          
+Lab06ex1              -[#595959,dashed]->  CakeMaster           : "«create»"
+Lab06ex1              -[#595959,dashed]->  ChocolateCakeBuilder : "«create»"
+Lab06ex1              -[#595959,dashed]->  SpongeCakeBuilder    : "«create»"
+Lab06ex1              -[#595959,dashed]->  YogurtCakeBuilder    : "«create»"
+SpongeCakeBuilder    "1" *-[#595959,plain]-> "spongeCake\n1" Cake                 
+SpongeCakeBuilder     -[#595959,dashed]->  Cake                 : "«create»"
+SpongeCakeBuilder     -[#008200,dashed]-^  CakeBuilder          
+YogurtCakeBuilder     -[#595959,dashed]->  Cake                 : "«create»"
+YogurtCakeBuilder    "1" *-[#595959,plain]-> "yogurtCake\n1" Cake                 
+YogurtCakeBuilder     -[#008200,dashed]-^  CakeBuilder          
+@enduml

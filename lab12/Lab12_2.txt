@@ -1,0 +1,17 @@
+1. java.io.InputStream
+A classe InputStream é uma "classe abstrata que define uma framework para a leitura de bytes de um stream de entrada". 
+Ela declara vários métodos abstratos, como read(), que devem ser implementados pelas subclasses para fornecer a 
+funcionalidade específica. Métodos como read(byte[] b, int off, int len) e skip(long n) são exemplos do padrão Template 
+Method, visto que fornecem um esqueleto do algoritmo, delegando partes do processo para métodos abstratos ou métodos que podem 
+ser sobrescritos.
+
+2. java.util.AbstractList
+A classe AbstractList fornece uma implementação básica da interface List, co o objetivo de minimizar o esforço necessário para 
+implementar esta interface. Métodos como add(E e) e remove(int index) são exemplos do padrão Template Method, pois 
+definem o esqueleto do algoritmo para adicionar ou remover elementos, chamando métodos abstratos ou métodos que podem 
+ser sobrescritos, como add(int index, E element) e removeRange(int fromIndex, int toIndex).
+
+3. java.util.AbstractMap
+A classe AbstractMap fornece uma implementação parcial da interface Map. Métodos como put(K key, V value) e remove(Object key) 
+são exemplos do padrão Template Method, pois fornecem o esqueleto do algoritmo para adicionar ou remover entradas, chamando 
+métodos abstratos ou métodos que podem ser sobrescritos, como putAll(Map<? extends K, ? extends V> m) e clear().

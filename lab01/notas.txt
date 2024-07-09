@@ -1,0 +1,1 @@
+1. Criar uma classe abstrata que extende a enum Direcrion que possua um método toString que passa por ex DIR para Right

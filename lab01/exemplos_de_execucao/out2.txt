@@ -1,0 +1,31 @@
+primeiro        8       12,2    UpRight
+segundo         7       5,12    DownRight
+terceiro        8       2,13    DownLeft
+quarto          6       18,18   Up
+casa            4       13,11   Left
+computador      10      11,5    Right
+janela          6       8,4     Up
+porta           5       16,4    UpRight
+fogueira        8       1,17    DownLeft
+comando         7       7,18    Up
+
+................FO..
+............T..O.D..
+...A.......E..G..N..
+...L......R..U...A..
+...E....OC.SE....M..
+...N...RE..IE....O..
+...A..II..R..G...C..
+...J.ER..A....U.....
+....MO.........N....
+...I............D...
+..R.COMPUTADOR...O..
+.P.....A............
+......TASAC......O..
+.....R...........T..
+....O............R..
+...P.............A..
+.................U..
+.................Q..
+....................
+....................

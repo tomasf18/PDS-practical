@@ -1,0 +1,39 @@
+/home/tomas/Desktop/PDS/practical-gp301/lab13/XIII2
+2024/06/04 23:06:38
+
+Alínea a) ----------------------------------
+
+Ref: C11 - CargoShip [code=S732, name=SoPingas, cargo=20,2]
+Ref: P35 - PassengerShip [code=S185, name=PDS All aboard, passengers=80]
+Ref: C02 - CargoShip [code=S101, name=Quebra Molas, cargo=155,5]
+Ref: C01 - Container Ship with 3 ships. Total passengers capacity : 6
+		PassengerShip [code=B899, name=Bora, passengers=4]
+		PassengerShip [code=B878, name=Riacho, passengers=2]
+		PassengerShip [code=B785, name=Turista, passengers=8]
+
+Ref: C03 - CargoShip [code=S923, name=Madalena, cargo=18,8]
+Ref: P06 - PassengerShip [code=S078, name=Costeiro, passengers=25]
+Ref: X01 - CargoShip [code=S45, name=Beirão, cargo=81,0]
+Ref: P54 - PassengerShip [code=S199, name=Bananeiros, passengers=120]
+
+Alínea b) ----------------------------------
+
+Quebra Molas removed
+Ref: C11 - CargoShip [code=S732, name=SoPingas, cargo=20,2]
+Ref: P35 - PassengerShip [code=S185, name=PDS All aboard, passengers=80]
+Ref: C01 - Container Ship with 3 ships. Total passengers capacity : 6
+		PassengerShip [code=B899, name=Bora, passengers=4]
+		PassengerShip [code=B878, name=Riacho, passengers=2]
+		PassengerShip [code=B785, name=Turista, passengers=8]
+
+Ref: C03 - CargoShip [code=S923, name=Madalena, cargo=18,8]
+Ref: P06 - PassengerShip [code=S078, name=Costeiro, passengers=25]
+Ref: X01 - CargoShip [code=S45, name=Beirão, cargo=81,0]
+Ref: P54 - PassengerShip [code=S199, name=Bananeiros, passengers=120]
+
+Alínea c) ----------------------------------
+
+Ref: C02 - CargoShip [code=S101, name=Quebra Molas, cargo=1,6]
+Ref: C03 - CargoShip [code=S923, name=Madalena, cargo=8,8]
+Ref: P06 - PassengerShip [code=S078, name=Costeiro, passengers=9]
+Ref: P54 - PassengerShip [code=S199, name=Bananeiros, passengers=5]

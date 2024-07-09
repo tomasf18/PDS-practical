@@ -1,0 +1,8 @@
+f tp123 3x2 10x4
+m tp123
+r tp123 E 4
+m tp123
+r tp123 T 10
+r tp123 T 4
+c tp123:1
+m tp123

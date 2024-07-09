@@ -1,0 +1,45 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Main{
++ {static} main(args : String[]) : void
+}
+class VectorGeneric{
+vec : T[]
+- nElem : int
+- {static} ALLOC : int
+- dimVec : int
++ VectorGeneric()
++ addElem(elem : T) : boolean
+- ensureSpace() : void
++ removeElem(elem : T) : boolean
++ totalElem() : int
++ getElem(i : int) : T
++ iterator() : java.util.Iterator<T>
++ listIterator() : java.util.ListIterator<T>
++ listIterator(index : int) : java.util.ListIterator<T>
+}
+class VectorListIterator{
+- vector : VectorGeneric<T>
+- index : int
++ VectorListIterator(vector : VectorGeneric<T>)
++ VectorListIterator(vector : VectorGeneric<T>, index : int)
++ hasNext() : boolean
++ next() : T
++ hasPrevious() : boolean
++ previous() : T
++ nextIndex() : int
++ previousIndex() : int
++ remove() : void
++ set(e : T) : void
++ add(e : T) : void
+}
+VectorListIterator ..|> ListIterator
+class VectorIterator{
+- vector : VectorGeneric<T>
+- index : int
++ VectorIterator(vector : VectorGeneric<T>)
++ hasNext() : boolean
++ next() : T
+}
+VectorIterator ..|> Iterator
+@enduml

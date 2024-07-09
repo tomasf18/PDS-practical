@@ -1,0 +1,55 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Employee{
+- name : String
+- emp_num : long
+- salary : double
++ Employee(name : String, emp_num : long, salary : double)
++ getName() : String
++ getEmpNum() : long
++ getSalary() : double
++ toString() : String
+}
+class Empregado{
+- nome : String
+- apelido : String
+- codigo : int
+- salario : double
++ Empregado(nome : String, apelido : String, codigo : int, salario : double)
++ apelido() : String
++ nome() : String
++ codigo() : int
++ salario() : double
++ toString() : String
+}
+class Company{
+- employees : Vector<Employee>
+- empregados : ArrayList<Empregado>
++ Company(employees : Vector<Employee>, empregados : ArrayList<Empregado>)
++ addEmployee(e : Employee) : boolean
++ addEmployee(e : Empregado) : boolean
+- exists(e : Employee) : boolean
+- convert(e : Empregado) : Employee
++ deleteEmployee(emp_num : long) : void
++ getAllEmployees() : Employee[]
++ employeesToString() : String
+}
+class Main{
++ {static} main(args : String[]) : void
+}
+class Registos{
+- empregados : ArrayList<Empregado>
++ Registos()
++ insere(emp : Empregado) : void
++ remove(codigo : int) : void
++ isEmpregado(codigo : int) : boolean
++ listaDeEmpregados() : List<Empregado>
+}
+class Database{
+- employees : Vector<Employee>
++ Database()
++ addEmployee(employee : Employee) : boolean
++ deleteEmployee(emp_num : long) : void
++ getAllEmployees() : Employee[]
+}
+@enduml

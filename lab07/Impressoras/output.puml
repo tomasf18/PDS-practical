@@ -1,0 +1,81 @@
+@startuml
+skinparam classAttributeIconSize 0
+class BasicPrinter{
+- inkAmount : int
+- paperAmount : int
++ BasicPrinter()
++ print(content : String[]) : boolean
++ hasInk() : boolean
++ hasPaper() : boolean
++ addInk() : void
++ addPaper() : void
++ refill() : void
+}
+class BasicToAdvancedPrinter{
+- advancedPrinter : AdvancedPrinter
++ BasicToAdvancedPrinter()
++ print(doc : Document) : int
++ print(docs : List<Document>) : List<Integer>
++ print(content : String[]) : boolean
++ showQueuedJobs() : void
++ cancelJob(jobId : int) : boolean
++ cancelAll() : void
+}
+BasicToAdvancedPrinter ..|> AdvancedPrinterInterface
+class AdvancedPrinter{
+- spool : PrinterService
++ AdvancedPrinter()
++ print(doc : Document) : int
++ print(docs : List<Document>) : List<Integer>
++ showQueuedJobs() : void
++ cancelJob(jobId : int) : boolean
++ cancelAll() : void
+}
+AdvancedPrinter ..|> AdvancedPrinterInterface
+class PrintJob{
+- document : Document
+- {static} nextJobId : int
+- jobId : int
++ PrintJob(document : Document)
++ getJobId() : int
++ getDocument() : Document
++ run() : void
++ toString() : String
+}
+PrintJob ..|> Runnable
+class PrinterService{
+- printQueue : LinkedBlockingQueue<PrintJob>
+- pool : ExecutorService
++ PrinterService()
++ run() : void
++ newPrintJob(doc : Document) : int
++ cancelJob(job : int) : boolean
+shutdownAndAwaitTermination() : void
++ getPrintQueue() : LinkedBlockingQueue<PrintJob>
+}
+PrinterService ..|> Runnable
+class PrinterMain{
+- {static} pause(millis : long) : void
++ {static} main(args : String[]) : void
+}
+class Document{
+- name : String
++ Document(name : String)
++ getName() : String
++ toString() : String
+}
+class PrinterTest{
+- {static} pause(millis : long) : void
++ {static} main(args : String[]) : void
+}
+BasicToAdvancedPrinter--"- advancedPrinter" AdvancedPrinter
+AdvancedPrinter--"- spool" PrinterService
+PrintJob--"- document" Document
+interface AdvancedPrinterInterface{
++ print(doc : Document) : int
++ print(docs : List<Document>) : List<Integer>
++ showQueuedJobs() : void
++ cancelJob(jobId : int) : boolean
++ cancelAll() : void
+}
+@enduml

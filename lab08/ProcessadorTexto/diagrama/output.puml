@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+class CapitalizationFilter{
+- words : ArrayList<String>
++ CapitalizationFilter(reader : ReaderInterface)
++ hasNext() : boolean
++ next() : String
+}
+CapitalizationFilter --|> Decorator
+class Decorator{
+reader : ReaderInterface
++ Decorator(reader : ReaderInterface)
++ hasNext() : boolean
++ next() : String
+}
+Decorator ..|> ReaderInterface
+class VowelFilter{
+- words : ArrayList<String>
++ VowelFilter(reader : ReaderInterface)
++ hasNext() : boolean
++ next() : String
+}
+VowelFilter --|> Decorator
+class NormalizationFilter{
+- words : ArrayList<String>
++ NormalizationFilter(reader : ReaderInterface)
++ hasNext() : boolean
++ next() : String
+}
+NormalizationFilter --|> Decorator
+class Main{
++ {static} main(args : String[]) : void
+}
+class TermFilter{
+- words : ArrayList<String>
++ TermFilter(reader : ReaderInterface)
++ hasNext() : boolean
++ next() : String
+}
+TermFilter --|> Decorator
+class TextReader{
+- scanner : Scanner
++ TextReader(file : File)
++ hasNext() : boolean
++ next() : String
+}
+TextReader ..|> ReaderInterface
+Decorator--"reader" ReaderInterface
+interface ReaderInterface{
++ hasNext() : boolean
++ next() : String
+}
+@enduml

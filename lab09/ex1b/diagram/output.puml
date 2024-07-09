@@ -1,0 +1,61 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Employee{
+- p : Person
+- salary : double
++ Employee(p : Person, s : double)
++ getPerson() : Person
++ getSalary() : double
+}
+class Proxy{
+bankAcc : BankAccountImpl
++ Proxy(bank : String, initialDeposit : double)
++ deposit(amount : double) : void
++ withdraw(amount : double) : boolean
++ balance() : double
++ canAccess() : boolean
+}
+Proxy ..|> BankAccount
+class BankAccountImpl{
+- bank : String
+- balance : double
+BankAccountImpl(bank : String, initialDeposit : double)
++ getBank() : String
++ deposit(amount : double) : void
++ withdraw(amount : double) : boolean
++ balance() : double
+}
+BankAccountImpl ..|> BankAccount
+class Company{
++ {static} user : User
+- emps : List<Employee>
++ admitPerson(name : String, salary : double) : void
++ paySalaries(month : int) : void
++ employees() : List<Employee>
+}
+class Person{
+- name : String
+- bankAccount : Proxy
++ Person(n : String)
++ getName() : String
++ deposit(amount : double) : void
++ balance() : double
++ withdraw(amount : double) : boolean
+}
+class SharkCompany{
++ {static} main(args : String[]) : void
+}
+Employee--"- p" Person
+Proxy--"bankAcc" BankAccountImpl
+Company--"+ {static} user" User
+Person--"- bankAccount" Proxy
+interface BankAccount{
+deposit(amount : double) : void
+withdraw(amount : double) : boolean
+balance() : double
+}
+enum User{
+OWNER
+COMPANY
+}
+@enduml

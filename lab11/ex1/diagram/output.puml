@@ -1,0 +1,103 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Stock{
+- p : Produto
++ Stock(p : Produto)
++ mudarParaStock() : boolean
++ mudarParaLeilao() : boolean
++ mudarParaVendas() : boolean
+}
+Stock ..|> Estado
+class Cliente{
+- nome : String
+- lojaLeilao : LojaLeilao
+- prodsEmLeilao : ArrayList<Produto>
++ Cliente(nome : String)
++ getNome() : String
++ setLojaLeilao(lojaLeilao : LojaLeilao) : void
++ informarProdsEmLeilao() : void
++ licitarProd(p : Produto, valor : double) : void
++ informacao(notification : String) : void
+}
+Cliente ..|> Interessado
+class Produto{
+- codigo : int
+- interessados : HashMap<Cliente,Double>
+- gestorInteressado : Gestor
+- descricao : String
+- precoBase : double
+- estado : Estado
++ Produto(c : int, descricao : String, precoBase : double)
++ getCodigo() : int
++ getDescricao() : String
++ mudarEstado(estado : Estado) : void
++ mudarParaStock() : boolean
++ mudarParaLeilao() : boolean
++ mudarParaVendas() : boolean
++ comecarLeilao(duracao : int) : boolean
++ terminarLeilao() : boolean
++ adicionarInteressado(g : Gestor) : void
++ adicionarInteressado(c : Cliente, valor : double) : void
+}
+class Leilao{
+- p : Produto
++ Leilao(p : Produto)
++ mudarParaStock() : boolean
++ mudarParaLeilao() : boolean
++ mudarParaVendas() : boolean
+}
+Leilao ..|> Estado
+class LojaLeilao{
+- produtos : ArrayList<Produto>
+- prodsEmStock : ArrayList<Produto>
+- prodsEmLeilao : ArrayList<Produto>
+- prodsVendidos : ArrayList<Produto>
+- gestor : Gestor
++ LojaLeilao(gestor : Gestor)
++ getProdsEmLeilao() : ArrayList<Produto>
++ adicionarStockProduto(p : Produto) : void
++ removerStockProduto(p : Produto) : void
++ comecarLeilao(p : Produto, duracao : int) : void
++ receberLicitacao(p : Produto, c : Cliente, valor : double) : void
++ produtoExisteStock(p : Produto) : boolean
+}
+class Vendas{
+- p : Produto
++ Vendas(p : Produto)
++ mudarParaStock() : boolean
++ mudarParaLeilao() : boolean
++ mudarParaVendas() : boolean
+}
+Vendas ..|> Estado
+class Main{
++ {static} main(args : String[]) : void
+}
+class Gestor{
+- nome : String
+- lojaLeilao : LojaLeilao
++ Gestor(nome : String)
++ getNome() : String
++ setLojaLeilao(lojaLeilao : LojaLeilao) : void
++ adicionarStockProduto(p : Produto) : void
++ removerStockProduto(p : Produto) : void
++ comecarLeilao(p : Produto, duracao : int) : void
++ informacao(notification : String) : void
+}
+Gestor ..|> Interessado
+Stock--"- p" Produto
+Cliente--"- lojaLeilao" LojaLeilao
+Produto--"- gestorInteressado" Gestor
+Produto--"- estado" Estado
+Leilao--"- p" Produto
+LojaLeilao--"- gestor" Gestor
+Vendas--"- p" Produto
+Gestor--"- lojaLeilao" LojaLeilao
+interface Estado{
++ mudarParaStock() : boolean
++ mudarParaLeilao() : boolean
++ mudarParaVendas() : boolean
+}
+interface Interessado{
++ informacao(notification : String) : void
+}
+@enduml

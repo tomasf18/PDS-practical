@@ -1,0 +1,86 @@
+@startuml
+skinparam classAttributeIconSize 0
+class BStar{
+- {static} instance : BStar
++ BStar()
++ {static} getInstance() : BStar
+}
+BStar --|> StarType
+class Star{
+- x : int
+- y : int
+- type : StarType
++ Star(x : int, y : int, type : StarType)
++ draw(g : Graphics) : void
+}
+class OStar{
+- {static} instance : OStar
++ OStar()
++ {static} getInstance() : OStar
+}
+OStar --|> StarType
+class AStar{
+- {static} instance : AStar
++ AStar()
++ {static} getInstance() : AStar
+}
+AStar --|> StarType
+class StarType{
+- size : int
+- color : Color
+# description : String
+# physicalProperties : Float[]
++ StarType(size : int, color : Color)
++ getSize() : int
++ getColor() : Color
+}
+class Sky{
+- stars : List<Star>
++ placeStar(star : Star) : void
++ paint(graphics : Graphics) : void
+}
+Sky --|> JFrame
+class FStar{
+- {static} instance : FStar
++ FStar()
++ {static} getInstance() : FStar
+}
+FStar --|> StarType
+class Demo{
+{static} CANVAS_SIZE : int
+{static} STARS_TO_DRAW : int
++ {static} main(args : String[]) : void
+- {static} createStar(typeChar : char) : Star
+- {static} random(min : int, max : int) : int
+}
+class KStar{
+- {static} instance : KStar
++ KStar()
++ {static} getInstance() : KStar
+}
+KStar --|> StarType
+class MStar{
+- {static} instance : MStar
++ MStar()
++ {static} getInstance() : MStar
+}
+MStar --|> StarType
+class GStar{
+- {static} instance : GStar
++ GStar()
++ {static} getInstance() : GStar
+}
+GStar --|> StarType
+class StarTypeFactory{
+- starTypes : Map<Character,StarType>
++ getStarType(type : char) : StarType
+}
+BStar--"- {static} instance" BStar
+Star--"- type" StarType
+OStar--"- {static} instance" OStar
+AStar--"- {static} instance" AStar
+FStar--"- {static} instance" FStar
+KStar--"- {static} instance" KStar
+MStar--"- {static} instance" MStar
+GStar--"- {static} instance" GStar
+@enduml

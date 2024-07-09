@@ -1,0 +1,2 @@
+para o ult eex primeiro listamos 
+começar por ter o print em baixo, e depois se conseguirmos meter para cima (é o maiis dificil, mas nao tem nada a ver com padroes, por isso implementar se conseguir)

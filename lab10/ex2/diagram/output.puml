@@ -1,0 +1,76 @@
+@startuml
+skinparam classAttributeIconSize 0
+class BurgerChef{
+- nextChef : Chef
+- specialized : FoodType
++ cook(food : FoodItem) : void
++ setNextChef(c : Chef) : void
+- canCook(food : FoodItem) : boolean
+}
+BurgerChef --|> Chef
+class PizzaChef{
+- nextChef : Chef
+- specialized : FoodType
++ cook(food : FoodItem) : void
++ setNextChef(c : Chef) : void
+- canCook(food : FoodItem) : boolean
+}
+PizzaChef --|> Chef
+class Chef{
++ {abstract} setNextChef(nextChef : Chef) : void
++ {abstract} cook(food : FoodItem) : void
+}
+class DessertChef{
+- nextChef : Chef
+- specialized : FoodType
++ cook(food : FoodItem) : void
++ setNextChef(c : Chef) : void
+- canCook(food : FoodItem) : boolean
+}
+DessertChef --|> Chef
+class SushiChef{
+- nextChef : Chef
+- specialized : FoodType
++ cook(food : FoodItem) : void
++ setNextChef(c : Chef) : void
+- canCook(food : FoodItem) : boolean
+}
+SushiChef --|> Chef
+class Restaurant{
++ {static} main(args : String[]) : void
+}
+class PastaChef{
+- nextChef : Chef
+- specialized : FoodType
++ cook(food : FoodItem) : void
++ setNextChef(c : Chef) : void
+- canCook(food : FoodItem) : boolean
+}
+PastaChef --|> Chef
+class FoodItem{
+- description : String
+- type : FoodType
++ FoodItem(description : String, type : FoodType)
++ getFoodType() : FoodType
++ getDescription() : String
+}
+BurgerChef--"- nextChef" Chef
+BurgerChef--"- specialized" FoodType
+PizzaChef--"- nextChef" Chef
+PizzaChef--"- specialized" FoodType
+DessertChef--"- nextChef" Chef
+DessertChef--"- specialized" FoodType
+SushiChef--"- nextChef" Chef
+SushiChef--"- specialized" FoodType
+PastaChef--"- nextChef" Chef
+PastaChef--"- specialized" FoodType
+FoodItem--"- type" FoodType
+enum FoodType{
+SUSHI
+BURGER
+PASTA
+PIZZA
+DESSERT
+SALAD
+}
+@enduml

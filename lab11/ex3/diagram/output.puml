@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Person{
+- mediator : ChatMediator
++ Person(mediator : ChatMediator)
++ sendMessage(message : String) : void
++ receiveMessage(message : String) : void
+}
+class ChatMediator{
+- persons : ArrayList<Person>
++ addPerson(person : Person) : void
++ sendMessage(message : String, sender : Person) : void
+}
+ChatMediator ..|> Mediator
+class Main{
++ {static} main(args : String[]) : void
+}
+Person--"- mediator" ChatMediator
+interface Mediator{
++ addPerson(person : Person) : void
++ sendMessage(message : String, sender : Person) : void
+}
+@enduml

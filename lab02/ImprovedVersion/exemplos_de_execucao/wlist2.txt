@@ -1,0 +1,2 @@
+primeiro segundo,terceiro;quarto
+casa computador janela,porta fogueira;comando

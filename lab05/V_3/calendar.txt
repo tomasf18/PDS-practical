@@ -1,0 +1,26 @@
+    Quanto ao padrão "Factory Method", um creational pattern que fornece uma interface para criar objetos sem 
+especificar as respetivas classes, permitindo, deste modo, o encapsulamento da lógica de criação de objetos e facilitando 
+a sua instanciação, a classe java.util.Calendar:
+    -> implementa um método "createCalendar()", onde é criada e devolvida uma nova instância da classe
+    -> dentro do método podem ser encontradas mais 3 classes que seguem o modelo de Factory (permitem criar 
+    diferentes tipos de calendário, de acordo com um argumento "aLocale" passado):
+        - BuddhistCalendar
+        - JapaneseImperialCalendar
+        - GregorianCalendar
+        
+    Já o padrão "Builder" (que, por sua vez, permite construir objetos complexos passo a passo, através da
+produção de diferentes tipos e representaçóes de um objeto usando o mesmo código de construção), está patente
+na classe java.util.Calendar da seguinte forma:
+    -> a classe possui uma "public static class Builder" que implementa uma série de sets. Como uma instância da classe
+    Calendar é algo complexo, estes sets permitem construir um de forma simples, permitindo a produção de um
+    Calendar passo-a-passo, permitindo também a criação de diferentes formatos (ou modos de representação) de um 
+    objeto destes. São exemplos de sets:
+    	- setInstant()
+    	- set()
+    	- setFields()
+    	- setDate()
+    	- setTimeOfDay()
+    	- setTimeOfDay()
+    	- setTimeZone()
+    	- (...)
+    	

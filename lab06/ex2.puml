@@ -1,0 +1,115 @@
+@startuml
+skinparam classAttributeIconSize 0
+class ActionMovieBuilder{
++ addTitle() : void
++ addYear() : void
++ addDirector() : void
++ addWriter() : void
++ addSeries() : void
++ addCast() : void
++ addLocations() : void
++ addLanguages() : void
++ addGenres() : void
++ setIsTelevision() : void
++ setIsNetflix() : void
++ setIsIndependent() : void
+}
+ActionMovieBuilder --|> MovieBuilder
+class MovieBuilder{
+# m : Movie
++ createNewMovie() : void
++ getMovie() : Movie
++ {abstract} addTitle() : void
++ {abstract} addYear() : void
++ {abstract} addDirector() : void
++ {abstract} addWriter() : void
++ {abstract} addSeries() : void
++ {abstract} addCast() : void
++ {abstract} addLocations() : void
++ {abstract} addLanguages() : void
++ {abstract} addGenres() : void
++ {abstract} setIsTelevision() : void
++ {abstract} setIsNetflix() : void
++ {abstract} setIsIndependent() : void
+}
+class Person{
+- name : String
++ Person(name : String)
++ getName() : String
+}
+class MovieDirector{
+- mb : MovieBuilder
++ setSpecificMovieBuilder(mb : MovieBuilder) : void
++ getMovie() : Movie
++ constructMovie() : void
+}
+class Place{
+- location : String
++ Place(location : String)
++ getLocation() : String
+}
+class HorrorMovieBuilder{
++ addTitle() : void
++ addYear() : void
++ addDirector() : void
++ addWriter() : void
++ addSeries() : void
++ addCast() : void
++ addLocations() : void
++ addLanguages() : void
++ addGenres() : void
++ setIsTelevision() : void
++ setIsNetflix() : void
++ setIsIndependent() : void
+}
+HorrorMovieBuilder --|> MovieBuilder
+class Movie{
+- title : String
+- year : int
+- director : Person
+- writer : Person
+- series : String
+- cast : List<Person>
+- locations : List<Place>
+- languages : List<String>
+- genres : List<String>
+- isTelevision : boolean
+- isNetflix : boolean
+- isIndependent : boolean
++ setTitle(title : String) : void
++ setYear(year : int) : void
++ setDirector(director : Person) : void
++ setWriter(writer : Person) : void
++ setSeries(series : String) : void
++ setCast(cast : List<Person>) : void
++ setLocations(locations : List<Place>) : void
++ setLanguages(languages : List<String>) : void
++ setGenres(genres : List<String>) : void
++ setIsTelevision(isTelevision : boolean) : void
++ setIsNetflix(isNetflix : boolean) : void
++ setIsIndependent(isIndependent : boolean) : void
++ toString() : String
+}
+class Cinema{
++ {static} main(args : String[]) : void
+}
+class ComedyMovieBuilder{
++ addTitle() : void
++ addYear() : void
++ addDirector() : void
++ addWriter() : void
++ addSeries() : void
++ addCast() : void
++ addLocations() : void
++ addLanguages() : void
++ addGenres() : void
++ setIsTelevision() : void
++ setIsNetflix() : void
++ setIsIndependent() : void
+}
+ComedyMovieBuilder --|> MovieBuilder
+MovieBuilder--"# m" Movie
+MovieDirector--"- mb" MovieBuilder
+Movie--"- director" Person
+Movie--"- writer" Person
+@enduml
